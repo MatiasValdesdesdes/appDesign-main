@@ -25,6 +25,7 @@
 </p>
 
 <a [routerLink]="['']"> Go back </a>
+<ion-button (click)="logOut()">logOut</ion-button>
 
 <p>
   Amount with taxes: {{ amount | tax: 16 | currency : 'USD'}}

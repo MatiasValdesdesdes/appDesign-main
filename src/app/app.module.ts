@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router, RouteReuseStrategy, RouterLink } from '@angular/router';
+import { Router, RouteReuseStrategy, RouterLinkActive } from '@angular/router';
 import { HomePage } from './home/home.page'
 import { UserComponent } from './components/user/user.component'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -11,6 +11,7 @@ import { CalcComponent } from './components/calc/calc.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,13 @@ import { ReactiveFormsModule } from '@angular/forms';
      HighlightDirective,
      ReactiveFormsModule
     ],
-  providers: [{ provide: RouteReuseStrategy, 
-    useClass: IonicRouteStrategy }],
+providers: [{ 
+  provide: RouteReuseStrategy, 
+  useClass: IonicRouteStrategy
+ },
+ LocalStorageService
+],
+
   bootstrap: [AppComponent],
 })
 export class AppModule { }
